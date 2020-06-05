@@ -93,6 +93,52 @@ button:hover {
   color: white;
 }
 
+/* CHECKOUT PAGE */
+.summary-total {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.product-review {
+  height: 200px;
+  padding: 80px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.summary-wrapper {
+  display: flex;
+}
+
+.summary-description {
+  margin-left: 40px;
+}
+
+.remove-selection {
+  width: 100px;
+  background: white;
+  color: gray;
+  font-size: 1rem;
+  border: none;
+}
+
+.remove-selection:hover {
+  background: rgb(240, 240, 240);
+  color: black;
+}
+
+.summary-total {
+  border-top: 1px solid rgb(228, 228, 228);
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
 /* ERROR PAGE */
 
 .back-icon {
@@ -119,5 +165,5 @@ button:hover {
 
 .not-found {
   font-size: 2rem;
-  margin-top: 40px;
+  /* margin-top: 40px; */
 }
