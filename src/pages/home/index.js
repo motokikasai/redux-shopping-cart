@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import logo from "../../logo.svg";
 import bag from "../../images/icons/bag.svg";
@@ -17,11 +18,18 @@ class Home extends Component {
           </div>
         </div>
         <div className="product-list">
-          <div className="main-content">Home page...</div>
+          <div className="main-content">
+            <h1>Home page...</h1>
+            <ul></ul>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return;
+};
+
+export default connect(mapStateToProps)(Home);
