@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Pages
 import Home from "./pages/home";
-import Product from "./pages/product";
-import Error from "./pages/error";
+import Checkout from "./pages/checkout";
+import Error from "./pages/empty";
 
 import "./App.css";
 
@@ -13,7 +13,8 @@ function App() {
       <Router>
         <div className="main-wrapper">
           <Switch>
-            <Route path="/products/:id" component={Product} />
+            {/* <Route path="/products/:id" component={Product} /> */}
+            <Route exact path="/checkout" component={Checkout} />
             <Route exact path="/" component={Home} />
             <Route component={Error} />
           </Switch>
