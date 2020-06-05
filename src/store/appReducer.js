@@ -1,4 +1,4 @@
-// import { combineReducers } from "redux";
+import { combineReducers } from "redux";
 
 import products from "../data/products.json";
 
@@ -9,7 +9,7 @@ const normalizedProducts = products.reduce((acc, curr) => {
 }, {});
 console.log(normalizedProducts);
 
-function appReducer(state = [], action) {
+function appReducer(state = { ...normalizedProducts }, action) {
   switch (action.type) {
     case "ADD_PRODUCT":
       return state;

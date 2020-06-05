@@ -18,10 +18,31 @@ class Home extends Component {
           </div>
         </div>
         <div className="product-list">
-          <div className="main-content">
-            <h1>Home page...</h1>
-            <ul></ul>
-          </div>
+          <h1>Home page...</h1>
+          <ul>
+            {this.props.productEntries.map((product) => {
+              return (
+                <li className="list-item" key={product.id}>
+                  <img
+                    src={require(`../../images/${product.imageUrl}`)}
+                    className="thumbnail"
+                    alt="product-pic"
+                  />
+                  <div className="card-content">
+                    <div className="product-name">{product.title}</div>
+
+                    <div className="price-button-wrapper">
+                      <div className="price-tag">{`${new Intl.NumberFormat(
+                        "de-DE",
+                        { style: "currency", currency: "EUR" }
+                      ).format(product.price)}`}</div>
+                      <button>Add to bag</button>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
     );
@@ -29,7 +50,13 @@ class Home extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return;
+  return {
+    productEntries: Object.keys(state).map((key) => {
+      // console.log(state[key]);
+
+      return state[key];
+    }),
+  };
 };
 
 export default connect(mapStateToProps)(Home);
