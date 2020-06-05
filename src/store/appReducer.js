@@ -13,8 +13,8 @@ function purchasesReducer(state = {}, action) {
     case actions.ADD_PRODUCT:
       return {
         ...state,
-        [action.payload.productId]: {
-          ...action.payload.productId,
+        [action.payload.product.id]: {
+          ...action.payload.product,
         },
       };
 

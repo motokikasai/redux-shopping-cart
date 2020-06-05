@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import close from "../../images/icons/close.png";
 
@@ -35,4 +36,16 @@ class Checkout extends Component {
   }
 }
 
-export default Checkout;
+const mapStateToProps = (state, ownProps) => {
+  console.log(state.purchases);
+
+  return {
+    productSelections: state.purchases,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  console.log("hello...???");
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

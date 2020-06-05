@@ -101,7 +101,7 @@ button:hover {
 
 .product-review {
   height: 200px;
-  padding: 80px 30px;
+  padding: 60px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

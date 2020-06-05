@@ -7,10 +7,10 @@ import bag from "../../images/icons/bag.svg";
 import * as actions from "../../store/actionTypes";
 
 class Home extends Component {
-  clickHandler = (id, title) => {
-    console.log(id);
+  clickHandler = (productObj) => {
+    console.log(productObj);
 
-    this.props.addProduct(id, title);
+    this.props.addProduct(productObj);
   };
 
   render() {
@@ -46,11 +46,7 @@ class Home extends Component {
                         "de-DE",
                         { style: "currency", currency: "EUR" }
                       ).format(product.price)}`}</div>
-                      <button
-                        onClick={() =>
-                          this.clickHandler(product.id, product.title)
-                        }
-                      >
+                      <button onClick={() => this.clickHandler(product)}>
                         Add to bag
                       </button>
                     </div>
@@ -75,12 +71,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addProduct: (id, title) => {
+    addProduct: (product) => {
       dispatch({
         type: actions.ADD_PRODUCT,
         payload: {
-          productId: id,
-          productTitle: title,
+          product,
         },
       });
     },
