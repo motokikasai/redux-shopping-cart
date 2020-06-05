@@ -13,17 +13,28 @@ class Checkout extends Component {
             <img src={close} className="close-icon" alt="back-icon" />
           </div>
         </Link>
-        <section className="product-review">
-          <div className="summary-wrapper">
-            <img src="../img.jpg" alt="product-pic" />
-            <div className="summary-description">
-              <div>Summary product title</div>
-              <div>Price</div>
-              <div>Qty</div>
-            </div>
-          </div>
-          <button className="remove-selection">remove</button>
-        </section>
+        {this.props.productSelections.map((product) => {
+          return (
+            <section key={product.id} className="product-review">
+              <div className="summary-wrapper">
+                <img
+                  src={require(`../../images/${product.imageUrl}`)}
+                  className="preview-image"
+                  alt="product-pic"
+                />
+                <div className="summary-description">
+                  <div>{product.title}</div>
+                  <div>{`${new Intl.NumberFormat("de-DE", {
+                    style: "currency",
+                    currency: "EUR",
+                  }).format(product.price)}`}</div>
+                  <div>Qty</div>
+                </div>
+              </div>
+              <button className="remove-selection">remove</button>
+            </section>
+          );
+        })}
         <section className="summary-total">
           <div className="summary">
             <p>Total</p>
@@ -37,15 +48,17 @@ class Checkout extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.purchases);
+  // console.log(state.purchases);
 
   return {
-    productSelections: state.purchases,
+    productSelections: Object.keys(state.purchases).map((key) => {
+      return state.purchases[key];
+    }),
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  console.log("hello...???");
-};
+// const mapDispatchToProps = (dispatch) => {
+//   console.log("hello...???");
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
+export default connect(mapStateToProps /* mapDispatchToProps */)(Checkout);

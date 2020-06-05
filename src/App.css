@@ -20,7 +20,6 @@ a {
 .header {
   display: flex;
   justify-content: space-between;
-  /* background: rgb(221, 221, 221); */
   box-shadow: 0 10px 10px rgb(240, 240, 240);
   margin-bottom: 80px;
 }
@@ -104,7 +103,8 @@ button:hover {
   padding: 60px 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgb(228, 228, 228);
 }
 
 .summary-wrapper {
@@ -116,7 +116,8 @@ button:hover {
 }
 
 .remove-selection {
-  width: 100px;
+  padding: 10px 0;
+  margin: 10px 0;
   background: white;
   color: gray;
   font-size: 1rem;
@@ -124,12 +125,8 @@ button:hover {
 }
 
 .remove-selection:hover {
-  background: rgb(240, 240, 240);
+  background: white;
   color: black;
-}
-
-.summary-total {
-  border-top: 1px solid rgb(228, 228, 228);
 }
 
 .summary {
@@ -137,6 +134,12 @@ button:hover {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+}
+
+.preview-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
 
 /* ERROR PAGE */

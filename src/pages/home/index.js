@@ -8,7 +8,7 @@ import * as actions from "../../store/actionTypes";
 
 class Home extends Component {
   clickHandler = (productObj) => {
-    console.log(productObj);
+    // console.log(productObj);
 
     this.props.addProduct(productObj);
   };
