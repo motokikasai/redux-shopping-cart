@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+.main-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: auto;
+  background: rgb(245, 245, 245);
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* HOME PAGE */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(221, 221, 221);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logo {
+  width: 100px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cart-snippet {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.bag-icon {
+  width: 20px;
+}
+
+.item-counter {
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.product-list {
+  padding: 20px;
+}
+
+/* ERROR PAGE */
+
+.back-icon {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+
+.close-icon {
+  width: 30px;
+}
+
+.error-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.empty-hanger {
+  width: 200px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.not-found {
+  font-size: 2rem;
+  margin-top: 40px;
 }
