@@ -19,9 +19,9 @@ function purchasesReducer(state = {}, action) {
       };
 
     case actions.DELETE_PRODUCT:
-      // const filteredArr = Object.keys(state).filter((id) => {
-      //   return action.payload.product.id !== id;
-      // });
+      const newFilteredArr = Object.values(state).filter((obj) => {
+        return action.payload.product !== obj;
+      });
 
       return {};
 
