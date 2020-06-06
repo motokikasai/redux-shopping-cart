@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import close from "../../images/icons/close.png";
+import * as actions from "../../store/actionTypes";
 
 class Checkout extends Component {
+  clickHandler = (productObj) => {
+    console.log("remove clicked!!!");
+    console.log(productObj);
+
+    this.props.deleteProduct(productObj);
+  };
+
   render() {
     return (
       <div>
@@ -31,7 +39,12 @@ class Checkout extends Component {
                   <div>Qty</div>
                 </div>
               </div>
-              <button className="remove-selection">remove</button>
+              <button
+                onClick={() => this.clickHandler(product)}
+                className="remove-selection"
+              >
+                remove
+              </button>
             </section>
           );
         })}
@@ -48,8 +61,6 @@ class Checkout extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state.purchases);
-
   return {
     productSelections: Object.keys(state.purchases).map((key) => {
       return state.purchases[key];
@@ -57,8 +68,17 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch) => {
-//   console.log("hello...???");
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteProduct: (product) => {
+      dispatch({
+        type: actions.DELETE_PRODUCT,
+        payload: {
+          product,
+        },
+      });
+    },
+  };
+};
 
-export default connect(mapStateToProps /* mapDispatchToProps */)(Checkout);
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
