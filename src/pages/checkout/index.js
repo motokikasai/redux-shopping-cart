@@ -36,11 +36,14 @@ class Checkout extends Component {
                 />
                 <div className="summary-description">
                   <div>{product.title}</div>
-                  <div>{`${new Intl.NumberFormat("de-DE", {
-                    style: "currency",
-                    currency: "EUR",
-                  }).format(product.price)}`}</div>
-                  <div>Qty</div>
+                  <div className="price-review">{`${new Intl.NumberFormat(
+                    "de-DE",
+                    {
+                      style: "currency",
+                      currency: "EUR",
+                    }
+                  ).format(product.price)}`}</div>
+                  <div>qty: {product.qty}</div>
                 </div>
               </div>
               <button

@@ -71,12 +71,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addProduct: (product, count) => {
+    addProduct: (product) => {
       dispatch({
         type: actions.ADD_PRODUCT,
         payload: {
           product,
-          count,
         },
       });
     },
