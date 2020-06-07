@@ -142,6 +142,18 @@ button:hover {
   object-fit: cover;
 }
 
+.total-price {
+  font-size: 2.4rem;
+  color: rgb(49, 49, 49);
+  margin-bottom: 20px;
+}
+
+.checkout-btn {
+  font-size: 1rem;
+  padding: 10px 24px;
+  border-radius: 4px;
+}
+
 /* ERROR PAGE */
 
 .back-icon {

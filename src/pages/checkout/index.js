@@ -6,6 +6,10 @@ import close from "../../images/icons/close.png";
 import * as actions from "../../store/actionTypes";
 
 class Checkout extends Component {
+  state = {
+    total: 0,
+  };
+
   clickHandler = (productId) => {
     console.log("remove clicked!!!");
     console.log(productId);
@@ -51,7 +55,10 @@ class Checkout extends Component {
         <section className="summary-total">
           <div className="summary">
             <p>Total</p>
-            <div className="total-price">4372349727 EURO</div>
+            <div className="total-price">{`${new Intl.NumberFormat("de-DE", {
+              style: "currency",
+              currency: "EUR",
+            }).format(this.state.total)}`}</div>
             <button className="checkout-btn">Checkout</button>
           </div>
         </section>

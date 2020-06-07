@@ -23,7 +23,7 @@ function purchasesReducer(state = {}, action) {
       delete duplicateState[action.payload.id];
 
       return {
-        duplicateState,
+        ...duplicateState,
       };
 
     default:
