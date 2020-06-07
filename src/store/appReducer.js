@@ -19,11 +19,12 @@ function purchasesReducer(state = {}, action) {
       };
 
     case actions.DELETE_PRODUCT:
-      const newFilteredArr = Object.values(state).filter((obj) => {
-        return action.payload.product !== obj;
-      });
+      const duplicateState = { ...state };
+      delete duplicateState[action.payload.id];
 
-      return {};
+      return {
+        duplicateState,
+      };
 
     default:
       return state;

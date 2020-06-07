@@ -6,11 +6,11 @@ import close from "../../images/icons/close.png";
 import * as actions from "../../store/actionTypes";
 
 class Checkout extends Component {
-  clickHandler = (productObj) => {
+  clickHandler = (productId) => {
     console.log("remove clicked!!!");
-    console.log(productObj);
+    console.log(productId);
 
-    this.props.deleteProduct(productObj);
+    this.props.deleteProduct(productId);
   };
 
   render() {
@@ -40,7 +40,7 @@ class Checkout extends Component {
                 </div>
               </div>
               <button
-                onClick={() => this.clickHandler(product)}
+                onClick={() => this.clickHandler(product.id)}
                 className="remove-selection"
               >
                 remove
@@ -70,11 +70,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteProduct: (product) => {
+    deleteProduct: (productId) => {
       dispatch({
         type: actions.DELETE_PRODUCT,
         payload: {
-          product,
+          id: productId,
         },
       });
     },
